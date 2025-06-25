@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://byml3u40mmctk"]
+[gd_scene load_steps=8 format=3 uid="uid://byml3u40mmctk"]
 
 [ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_wv84l"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_2xrjm"]
 [ext_resource type="Texture2D" uid="uid://do380dw60afwt" path="res://icon.svg" id="3_bfg5n"]
+[ext_resource type="Texture2D" uid="uid://b23dmcnjdvn70" path="res://Sprites/goose.png" id="3_juocn"]
 [ext_resource type="Script" path="res://Scripts/Rotate CCW Action.gd" id="4_0ubb6"]
 [ext_resource type="Script" path="res://Scripts/Move Forward Action.gd" id="5_xtbv6"]
 
@@ -17,7 +18,7 @@ size = Vector2(128, 128)
 script = ExtResource("2_2xrjm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("3_bfg5n")
+texture = ExtResource("3_juocn")
 
 [node name="Rotate CW Action" type="Node" parent="Player"]
 script = ExtResource("4_0ubb6")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://di3hkx1cvcrip"]
+
+[ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_gokj6"]
+[ext_resource type="Script" path="res://Scripts/Debug Listener.gd" id="2_gykcf"]
+[ext_resource type="Texture2D" uid="uid://b6q7qg4lxeo3y" path="res://Sprites/bg_black.png" id="3_lgfax"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Game Manager" parent="." instance=ExtResource("1_gokj6")]
+
+[node name="Debug Listener" type="Node" parent="."]
+script = ExtResource("2_gykcf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_lgfax")
+centered = false
+
+[connection signal="button_press" from="Game Manager" to="Debug Listener" method="on_button_press"]
+[connection signal="button_release" from="Game Manager" to="Debug Listener" method="on_button_release"]
+
+[editable path="Game Manager"]

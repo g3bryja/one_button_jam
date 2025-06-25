@@ -13,6 +13,9 @@ var direction = _RIGHT
 @export var sprite_left: Sprite2D
 @export var sprite_right: Sprite2D
 
+@export var player_forward_collider: Area2D
+var _can_move_forward = true
+
 
 func _ready():
 	sprite_right.visible = false
@@ -41,5 +44,20 @@ func _update_sprite():
 	sprite_left.visible = direction == _LEFT
 	sprite_up.visible = direction == _UP
 
+
 func _on_star_collision(_collision: Area2D):
 	print("WIN")
+
+
+func _on_wall_collision(_collision: Area2D):
+	if (_collision == player_forward_collider):
+		_can_move_forward = false
+
+
+func _on_wall_exit(_collision: Area2D):
+	if (_collision == player_forward_collider):
+		_can_move_forward = true
+
+
+func can_move_forward():
+	return _can_move_forward

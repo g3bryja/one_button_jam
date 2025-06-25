@@ -5,4 +5,5 @@ extends "res://Scripts/Template Action.gd"
 
 
 func _on_action():
-	player.move_local_x(move_distance)
+	if (player.can_move_forward()):
+		player.move_local_x(move_distance)

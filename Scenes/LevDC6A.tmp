@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://byml3u40mmctk"]
+
+[ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_wv84l"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_2xrjm"]
+[ext_resource type="Texture2D" uid="uid://do380dw60afwt" path="res://icon.svg" id="3_bfg5n"]
+[ext_resource type="Script" path="res://Scripts/Rotate CCW Action.gd" id="4_0ubb6"]
+[ext_resource type="Texture2D" uid="uid://b5d116tcf7d2e" path="res://Sprites/goose_up.png" id="5_464jk"]
+[ext_resource type="Script" path="res://Scripts/Move Forward Action.gd" id="5_xtbv6"]
+[ext_resource type="Texture2D" uid="uid://blghl20dkd7kx" path="res://Sprites/goose_down.png" id="6_dedau"]
+[ext_resource type="Texture2D" uid="uid://cuw304qoudgyq" path="res://Sprites/goose_left.png" id="7_42td7"]
+[ext_resource type="Texture2D" uid="uid://dk0cuq0kdk5fl" path="res://Sprites/goose_right.png" id="8_7vpio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8r2lc"]
+size = Vector2(94.1176, 94.1176)
+
+[node name="Level1" type="Node2D"]
+
+[node name="Game Manager" parent="." instance=ExtResource("1_wv84l")]
+
+[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("sprite_up", "sprite_down", "sprite_left", "sprite_right")]
+position = Vector2(64, 64)
+script = ExtResource("2_2xrjm")
+sprite_up = NodePath("Sprites/Up")
+sprite_down = NodePath("Sprites/Down")
+sprite_left = NodePath("Sprites/Left")
+sprite_right = NodePath("Sprites/Right")
+
+[node name="Rotate CW Action" type="Node" parent="Player"]
+script = ExtResource("4_0ubb6")
+
+[node name="Move Forward Action" type="Node" parent="Player"]
+script = ExtResource("5_xtbv6")
+move_distance = 128
+move_time = 0.2
+
+[node name="Area2D" type="Area2D" parent="Player"]
+scale = Vector2(1.36, 1.36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8r2lc")
+
+[node name="Sprites" type="Node2D" parent="Player"]
+scale = Vector2(5.8, 5.8)
+
+[node name="Up" type="Sprite2D" parent="Player/Sprites"]
+rotation = 1.5708
+texture = ExtResource("5_464jk")
+
+[node name="Down" type="Sprite2D" parent="Player/Sprites"]
+rotation = -1.5708
+texture = ExtResource("6_dedau")
+
+[node name="Left" type="Sprite2D" parent="Player/Sprites"]
+rotation = 3.14159
+texture = ExtResource("7_42td7")
+
+[node name="Right" type="Sprite2D" parent="Player/Sprites"]
+texture = ExtResource("8_7vpio")
+
+[node name="Star" type="Node2D" parent="."]
+position = Vector2(640, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="Star"]
+texture = ExtResource("3_bfg5n")
+
+[node name="Area2D" type="Area2D" parent="Star"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Star/Area2D"]
+shape = SubResource("RectangleShape2D_8r2lc")
+
+[connection signal="button_press" from="Game Manager" to="Player/Move Forward Action" method="_on_action"]
+[connection signal="button_release" from="Game Manager" to="Player/Rotate CW Action" method="_on_action"]
+[connection signal="area_entered" from="Star/Area2D" to="Player" method="_on_star_collision"]
+
+[editable path="Game Manager"]

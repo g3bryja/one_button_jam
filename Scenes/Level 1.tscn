@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://byml3u40mmctk"]
+
+[ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_wv84l"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_2xrjm"]
+[ext_resource type="Texture2D" uid="uid://do380dw60afwt" path="res://icon.svg" id="3_bfg5n"]
+[ext_resource type="Script" path="res://Scripts/Rotate CCW Action.gd" id="4_0ubb6"]
+[ext_resource type="Script" path="res://Scripts/Move Forward Action.gd" id="5_xtbv6"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Game Manager" parent="." instance=ExtResource("1_wv84l")]
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("2_2xrjm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("3_bfg5n")
+
+[node name="Rotate CW Action" type="Node" parent="Player"]
+script = ExtResource("4_0ubb6")
+
+[node name="Move Forward Action" type="Node" parent="Player"]
+script = ExtResource("5_xtbv6")
+move_distance = 100
+
+[node name="Star" type="Node2D" parent="."]
+position = Vector2(640, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="Star"]
+texture = ExtResource("3_bfg5n")
+
+[connection signal="button_press" from="Game Manager" to="Player/Move Forward Action" method="_on_action"]
+[connection signal="button_release" from="Game Manager" to="Player/Rotate CW Action" method="_on_action"]
+
+[editable path="Game Manager"]

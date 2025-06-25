@@ -1,19 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgw60gshhi57b"]
 
-[ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_8ut13"]
-[ext_resource type="Script" path="res://Scenes/Debug Listener.gd" id="2_3kd3c"]
+[ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_sofb6"]
+[ext_resource type="Script" path="res://Scripts/Debug Listener.gd" id="2_3kd3c"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Game Manager" type="Node" parent="." node_paths=PackedStringArray("press_timer")]
-script = ExtResource("1_8ut13")
+[node name="Game Manager" parent="." node_paths=PackedStringArray("press_timer") instance=ExtResource("1_sofb6")]
 press_timer = NodePath("Press & Hold Timer")
-
-[node name="Press & Hold Timer" type="Timer" parent="Game Manager"]
-one_shot = true
 
 [node name="Debug Listener" type="Node" parent="."]
 script = ExtResource("2_3kd3c")
 
 [connection signal="button_press" from="Game Manager" to="Debug Listener" method="on_button_press"]
 [connection signal="button_release" from="Game Manager" to="Debug Listener" method="on_button_release"]
+
+[editable path="Game Manager"]

@@ -4,7 +4,7 @@ extends Node
 const ACTION = 'button'
 
 @export var press_timer: Timer
-@export var hold_action_time = 1
+@export var hold_action_time: float = 1
 
 signal button_press
 signal button_release
@@ -15,7 +15,7 @@ func _ready():
 	press_timer.wait_time = hold_action_time
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# on press
 	if Input.is_action_just_pressed(ACTION):
 		button_press.emit()

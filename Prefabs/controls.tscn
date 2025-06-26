@@ -6,6 +6,17 @@
 
 [node name="Controls" type="Node2D"]
 
+[node name="LEVEL" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 568.0
+offset_right = 848.0
+offset_bottom = 688.0
+theme = ExtResource("1_q5mhh")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "LEVEL #: NAME GOES HERE"
+
 [node name="PRESS + HOLD" type="Label" parent="."]
 offset_left = 592.0
 offset_top = 568.0

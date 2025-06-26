@@ -217,6 +217,9 @@ player = NodePath("../Player/Player Collider")
 
 [node name="Controls" parent="." instance=ExtResource("17_5kueu")]
 
+[node name="LEVEL" parent="Controls" index="0"]
+text = "LEVEL 1: FIRST STEPS"
+
 [node name="Sprite2D" parent="Controls/PRESS + HOLD" index="0"]
 position = Vector2(264, 24)
 texture = ExtResource("18_5gcpx")

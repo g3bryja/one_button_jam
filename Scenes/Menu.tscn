@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnpvc2ijo3t"]
+[gd_scene load_steps=13 format=3 uid="uid://bnpvc2ijo3t"]
 
 [ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_njkfi"]
 [ext_resource type="Script" path="res://Scripts/Debug Listener.gd" id="2_ngb7h"]
@@ -9,7 +9,9 @@
 [ext_resource type="Theme" uid="uid://cdudi8ole10hu" path="res://Prefabs/pixel_text_theme.tres" id="7_l0dvh"]
 [ext_resource type="Texture2D" uid="uid://41vot7641y1d" path="res://Sprites/dot.png" id="8_g20vk"]
 [ext_resource type="Texture2D" uid="uid://bcukc0h0wslus" path="res://Sprites/check.png" id="9_ann0y"]
+[ext_resource type="Texture2D" uid="uid://cpfav4xw5lfvp" path="res://Sprites/menu_toggle.png" id="10_5ppur"]
 [ext_resource type="PackedScene" uid="uid://c3rxvix4y0kfg" path="res://Prefabs/controls.tscn" id="10_cn875"]
+[ext_resource type="Texture2D" uid="uid://dvtsduxwrymdg" path="res://Sprites/check_outline.png" id="11_ir6vi"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -150,6 +152,15 @@ position = Vector2(77.037, 0)
 texture = ExtResource("9_ann0y")
 
 [node name="Controls" parent="." instance=ExtResource("10_cn875")]
+
+[node name="LEVEL" parent="Controls" index="0"]
+text = ""
+
+[node name="Sprite2D" parent="Controls/PRESS + HOLD" index="0"]
+texture = ExtResource("11_ir6vi")
+
+[node name="Sprite2D2" parent="Controls/RELEASE" index="0"]
+texture = ExtResource("10_5ppur")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.75

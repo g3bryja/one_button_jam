@@ -1,24 +1,28 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjq400oa35nbr"]
+[gd_scene load_steps=27 format=3 uid="uid://bm7b46muj70tl"]
 
-[ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_1t7es"]
-[ext_resource type="Texture2D" uid="uid://b6q7qg4lxeo3y" path="res://Sprites/bg_black.png" id="2_tq3xc"]
-[ext_resource type="Texture2D" uid="uid://dvpb2s1ccp6rb" path="res://Sprites/wall.png" id="3_phke8"]
-[ext_resource type="Texture2D" uid="uid://byhlioyik5syx" path="res://Sprites/star.png" id="4_g5si5"]
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="5_h87tc"]
-[ext_resource type="Script" path="res://Scripts/Rotate CCW Action.gd" id="6_76mt7"]
-[ext_resource type="Script" path="res://Scripts/Move Forward Action.gd" id="7_p7ja0"]
-[ext_resource type="Script" path="res://Scripts/Player Sprite Controller.gd" id="8_6jylr"]
-[ext_resource type="Texture2D" uid="uid://b5d116tcf7d2e" path="res://Sprites/goose_up.png" id="9_yxyp4"]
-[ext_resource type="Texture2D" uid="uid://blghl20dkd7kx" path="res://Sprites/goose_down.png" id="10_xihod"]
-[ext_resource type="Texture2D" uid="uid://cuw304qoudgyq" path="res://Sprites/goose_left.png" id="11_nylvt"]
-[ext_resource type="Texture2D" uid="uid://dk0cuq0kdk5fl" path="res://Sprites/goose_right.png" id="12_lhviy"]
-[ext_resource type="Script" path="res://Scripts/Level Complete Text Controller.gd" id="13_dgm0o"]
-[ext_resource type="Theme" uid="uid://cdudi8ole10hu" path="res://Prefabs/pixel_text_theme.tres" id="14_f4bsw"]
-[ext_resource type="PackedScene" uid="uid://wiy6qi2nk2j7" path="res://Prefabs/footstep_audio.tscn" id="15_hff6x"]
-[ext_resource type="PackedScene" uid="uid://ds08sxvjc6wr6" path="res://Prefabs/win_audio.tscn" id="16_eqsw0"]
-[ext_resource type="PackedScene" uid="uid://c3rxvix4y0kfg" path="res://Prefabs/controls.tscn" id="17_pv8ff"]
-[ext_resource type="Texture2D" uid="uid://bb785s4cytoxs" path="res://Sprites/move.png" id="18_ct62y"]
-[ext_resource type="Texture2D" uid="uid://t5jk4l1ajq5b" path="res://Sprites/rotate.png" id="19_8eyoh"]
+[ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_wkw31"]
+[ext_resource type="Texture2D" uid="uid://b6q7qg4lxeo3y" path="res://Sprites/bg_black.png" id="2_65714"]
+[ext_resource type="Texture2D" uid="uid://dvpb2s1ccp6rb" path="res://Sprites/wall.png" id="3_nb0g7"]
+[ext_resource type="Texture2D" uid="uid://dth6086faytcw" path="res://Sprites/road.png" id="4_ikltd"]
+[ext_resource type="Texture2D" uid="uid://byhlioyik5syx" path="res://Sprites/star.png" id="4_rclyw"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="5_cqyyi"]
+[ext_resource type="Script" path="res://Scripts/Rotate CCW Action.gd" id="6_4b4y3"]
+[ext_resource type="Script" path="res://Scripts/Move Forward Action.gd" id="7_8k8fk"]
+[ext_resource type="Script" path="res://Scripts/Player Sprite Controller.gd" id="8_k318q"]
+[ext_resource type="Texture2D" uid="uid://b5d116tcf7d2e" path="res://Sprites/goose_up.png" id="9_qr07n"]
+[ext_resource type="Texture2D" uid="uid://blghl20dkd7kx" path="res://Sprites/goose_down.png" id="10_fdej4"]
+[ext_resource type="Texture2D" uid="uid://cuw304qoudgyq" path="res://Sprites/goose_left.png" id="11_l62rx"]
+[ext_resource type="Texture2D" uid="uid://dk0cuq0kdk5fl" path="res://Sprites/goose_right.png" id="12_qm2ym"]
+[ext_resource type="Script" path="res://Scripts/Level Complete Text Controller.gd" id="13_ft1xn"]
+[ext_resource type="Theme" uid="uid://cdudi8ole10hu" path="res://Prefabs/pixel_text_theme.tres" id="14_vn46v"]
+[ext_resource type="PackedScene" uid="uid://wiy6qi2nk2j7" path="res://Prefabs/footstep_audio.tscn" id="15_a0erl"]
+[ext_resource type="PackedScene" uid="uid://ds08sxvjc6wr6" path="res://Prefabs/win_audio.tscn" id="16_557er"]
+[ext_resource type="PackedScene" uid="uid://c3rxvix4y0kfg" path="res://Prefabs/controls.tscn" id="17_7qraq"]
+[ext_resource type="Texture2D" uid="uid://bb785s4cytoxs" path="res://Sprites/move.png" id="18_5afmo"]
+[ext_resource type="AudioStream" uid="uid://dgro2ddm7krpr" path="res://Audio/intro_blip.ogg" id="18_cc3va"]
+[ext_resource type="Texture2D" uid="uid://t5jk4l1ajq5b" path="res://Sprites/rotate.png" id="19_ja7xo"]
+[ext_resource type="Script" path="res://Scripts/Car.gd" id="21_eaolh"]
+[ext_resource type="Texture2D" uid="uid://c4c8mu4xxcf1m" path="res://Sprites/car.png" id="21_en5f1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6j68"]
 size = Vector2(23.7037, 23.7037)
@@ -26,20 +30,38 @@ size = Vector2(23.7037, 23.7037)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r2lc"]
 size = Vector2(128, 128)
 
-[node name="Level2" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82p0b"]
+size = Vector2(112, 112)
 
-[node name="Game Manager" parent="." instance=ExtResource("1_1t7es")]
+[node name="Level3" type="Node2D"]
+
+[node name="Game Manager" parent="." instance=ExtResource("1_wkw31")]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 320)
-texture = ExtResource("2_tq3xc")
+texture = ExtResource("2_65714")
 
 [node name="Node2D" type="Node2D" parent="Background"]
 scale = Vector2(5.4, 5.4)
 
+[node name="Road" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(-47.4074, 0)
+scale = Vector2(1, 5.55556)
+texture = ExtResource("4_ikltd")
+
+[node name="Road2" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(1, 5.55556)
+texture = ExtResource("4_ikltd")
+
+[node name="Road3" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(71.1111, 0)
+scale = Vector2(1, 5.55556)
+texture = ExtResource("4_ikltd")
+
 [node name="Wall" type="Sprite2D" parent="Background/Node2D"]
 position = Vector2(-94.8148, 47.4074)
-texture = ExtResource("3_phke8")
+texture = ExtResource("3_nb0g7")
 
 [node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall"]
 
@@ -47,8 +69,8 @@ texture = ExtResource("3_phke8")
 shape = SubResource("RectangleShape2D_s6j68")
 
 [node name="Wall2" type="Sprite2D" parent="Background/Node2D"]
-position = Vector2(0, 23.7037)
-texture = ExtResource("3_phke8")
+position = Vector2(-71.1111, 47.4074)
+texture = ExtResource("3_nb0g7")
 
 [node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall2"]
 
@@ -56,8 +78,8 @@ texture = ExtResource("3_phke8")
 shape = SubResource("RectangleShape2D_s6j68")
 
 [node name="Wall3" type="Sprite2D" parent="Background/Node2D"]
-position = Vector2(23.7037, 0)
-texture = ExtResource("3_phke8")
+position = Vector2(-71.1111, 0)
+texture = ExtResource("3_nb0g7")
 
 [node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall3"]
 
@@ -65,7 +87,8 @@ texture = ExtResource("3_phke8")
 shape = SubResource("RectangleShape2D_s6j68")
 
 [node name="Wall4" type="Sprite2D" parent="Background/Node2D"]
-texture = ExtResource("3_phke8")
+position = Vector2(-23.7037, -23.7037)
+texture = ExtResource("3_nb0g7")
 
 [node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall4"]
 
@@ -73,8 +96,8 @@ texture = ExtResource("3_phke8")
 shape = SubResource("RectangleShape2D_s6j68")
 
 [node name="Wall5" type="Sprite2D" parent="Background/Node2D"]
-position = Vector2(71.1111, -47.4074)
-texture = ExtResource("3_phke8")
+position = Vector2(23.7037, 0)
+texture = ExtResource("3_nb0g7")
 
 [node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall5"]
 
@@ -82,8 +105,8 @@ texture = ExtResource("3_phke8")
 shape = SubResource("RectangleShape2D_s6j68")
 
 [node name="Wall6" type="Sprite2D" parent="Background/Node2D"]
-position = Vector2(94.8148, -47.4074)
-texture = ExtResource("3_phke8")
+position = Vector2(23.7037, -23.7037)
+texture = ExtResource("3_nb0g7")
 
 [node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall6"]
 
@@ -91,8 +114,8 @@ texture = ExtResource("3_phke8")
 shape = SubResource("RectangleShape2D_s6j68")
 
 [node name="Wall7" type="Sprite2D" parent="Background/Node2D"]
-position = Vector2(-23.7037, -47.4074)
-texture = ExtResource("3_phke8")
+position = Vector2(47.4074, -47.4074)
+texture = ExtResource("3_nb0g7")
 
 [node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall7"]
 
@@ -136,11 +159,11 @@ scale = Vector2(9, 1)
 shape = SubResource("RectangleShape2D_s6j68")
 
 [node name="Star" type="Node2D" parent="."]
-position = Vector2(704, 448)
+position = Vector2(1088, 192)
 
 [node name="Sprite2D" type="Sprite2D" parent="Star"]
 scale = Vector2(5.4, 5.4)
-texture = ExtResource("4_g5si5")
+texture = ExtResource("4_rclyw")
 
 [node name="Star Collider" type="Area2D" parent="Star"]
 scale = Vector2(0.9, 0.9)
@@ -148,20 +171,22 @@ scale = Vector2(0.9, 0.9)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Star/Star Collider"]
 shape = SubResource("RectangleShape2D_8r2lc")
 
-[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("sprite_up", "sprite_down", "sprite_left", "sprite_right", "player_forward_collider")]
+[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("sprite_up", "sprite_down", "sprite_left", "sprite_right", "player_collider", "player_forward_collider", "hit_audio")]
 position = Vector2(64, 64)
-script = ExtResource("5_h87tc")
+script = ExtResource("5_cqyyi")
 sprite_up = NodePath("../Player Sprites/Up")
 sprite_down = NodePath("../Player Sprites/Down")
 sprite_left = NodePath("../Player Sprites/Left")
 sprite_right = NodePath("../Player Sprites/Right")
+player_collider = NodePath("Player Collider")
 player_forward_collider = NodePath("Player Forward Collider")
+hit_audio = NodePath("../Hit Audio")
 
 [node name="Rotate CW Action" type="Node" parent="Player"]
-script = ExtResource("6_76mt7")
+script = ExtResource("6_4b4y3")
 
 [node name="Move Forward Action" type="Node" parent="Player"]
-script = ExtResource("7_p7ja0")
+script = ExtResource("7_8k8fk")
 move_distance = 128
 
 [node name="Player Collider" type="Area2D" parent="Player"]
@@ -180,61 +205,123 @@ shape = SubResource("RectangleShape2D_8r2lc")
 [node name="Player Sprites" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(64, 64)
 scale = Vector2(5.4, 5.4)
-script = ExtResource("8_6jylr")
+script = ExtResource("8_k318q")
 player = NodePath("../Player")
 move_time = 0.3
 
 [node name="Up" type="Sprite2D" parent="Player Sprites"]
-texture = ExtResource("9_yxyp4")
+texture = ExtResource("9_qr07n")
 
 [node name="Down" type="Sprite2D" parent="Player Sprites"]
-texture = ExtResource("10_xihod")
+texture = ExtResource("10_fdej4")
 
 [node name="Left" type="Sprite2D" parent="Player Sprites"]
-texture = ExtResource("11_nylvt")
+texture = ExtResource("11_l62rx")
 
 [node name="Right" type="Sprite2D" parent="Player Sprites"]
-texture = ExtResource("12_lhviy")
+texture = ExtResource("12_qm2ym")
 
 [node name="Level Complete Text" type="Node2D" parent="." node_paths=PackedStringArray("player", "label", "timer")]
 position = Vector2(168, 264)
-script = ExtResource("13_dgm0o")
+script = ExtResource("13_ft1xn")
 player = NodePath("../Player/Player Collider")
 label = NodePath("Label")
 timer = NodePath("../Timer")
-next_level = "Level 3"
+next_level = "Menu"
 
 [node name="Label" type="Label" parent="Level Complete Text"]
 offset_right = 824.0
 offset_bottom = 120.0
-theme = ExtResource("14_f4bsw")
+theme = ExtResource("14_vn46v")
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 
-[node name="Footstep Audio" parent="." instance=ExtResource("15_hff6x")]
+[node name="Footstep Audio" parent="." instance=ExtResource("15_a0erl")]
 
-[node name="Win Audio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_eqsw0")]
+[node name="Win Audio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_557er")]
 player = NodePath("../Player/Player Collider")
 
-[node name="Controls" parent="." instance=ExtResource("17_pv8ff")]
+[node name="Hit Audio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_557er")]
+stream = ExtResource("18_cc3va")
+volume_db = 0.0
+pitch_scale = 1.0
+player = NodePath("../Player/Player Collider")
+
+[node name="Controls" parent="." instance=ExtResource("17_7qraq")]
 
 [node name="LEVEL" parent="Controls" index="0"]
-text = "LEVEL 2: ... FIRST STEPS?"
+text = "LEVEL 3: FREEWAYS"
 
 [node name="Sprite2D" parent="Controls/PRESS + HOLD" index="0"]
 position = Vector2(264, 24)
-texture = ExtResource("19_8eyoh")
+texture = ExtResource("18_5afmo")
 
 [node name="Sprite2D2" parent="Controls/RELEASE" index="0"]
-texture = ExtResource("18_ct62y")
+texture = ExtResource("19_ja7xo")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="button_press" from="Game Manager" to="Player/Rotate CW Action" method="_on_action"]
+[node name="Cars" type="Node2D" parent="."]
+
+[node name="TOP" type="Node2D" parent="Cars"]
+position = Vector2(0, -64)
+
+[node name="BOTTOM" type="Node2D" parent="Cars"]
+position = Vector2(0, 704)
+
+[node name="Car1" type="Node2D" parent="Cars" node_paths=PackedStringArray("top", "bottom")]
+position = Vector2(320, 192)
+script = ExtResource("21_eaolh")
+speed = 200.0
+top = NodePath("../TOP")
+bottom = NodePath("../BOTTOM")
+
+[node name="Car Collider" type="Area2D" parent="Cars/Car1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cars/Car1/Car Collider"]
+shape = SubResource("RectangleShape2D_82p0b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cars/Car1"]
+scale = Vector2(5.4, 5.4)
+texture = ExtResource("21_en5f1")
+
+[node name="Car2" type="Node2D" parent="Cars" node_paths=PackedStringArray("top", "bottom")]
+position = Vector2(576, 640)
+script = ExtResource("21_eaolh")
+speed = 400.0
+top = NodePath("../TOP")
+bottom = NodePath("../BOTTOM")
+
+[node name="Car Collider" type="Area2D" parent="Cars/Car2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cars/Car2/Car Collider"]
+shape = SubResource("RectangleShape2D_82p0b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cars/Car2"]
+scale = Vector2(5.4, 5.4)
+texture = ExtResource("21_en5f1")
+
+[node name="Car3" type="Node2D" parent="Cars" node_paths=PackedStringArray("top", "bottom")]
+position = Vector2(960, 24)
+script = ExtResource("21_eaolh")
+speed = 225.0
+top = NodePath("../TOP")
+bottom = NodePath("../BOTTOM")
+
+[node name="Car Collider" type="Area2D" parent="Cars/Car3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cars/Car3/Car Collider"]
+shape = SubResource("RectangleShape2D_82p0b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cars/Car3"]
+scale = Vector2(5.4, 5.4)
+texture = ExtResource("21_en5f1")
+
+[connection signal="button_press" from="Game Manager" to="Player/Move Forward Action" method="_on_action"]
 [connection signal="button_press" from="Game Manager" to="Footstep Audio" method="on_action"]
-[connection signal="button_release" from="Game Manager" to="Player/Move Forward Action" method="_on_action"]
+[connection signal="button_release" from="Game Manager" to="Player/Rotate CW Action" method="_on_action"]
 [connection signal="button_release" from="Game Manager" to="Footstep Audio" method="on_action"]
 [connection signal="area_entered" from="Background/Node2D/Wall/Wall Collider" to="Player" method="_on_wall_collision"]
 [connection signal="area_exited" from="Background/Node2D/Wall/Wall Collider" to="Player" method="_on_wall_exit"]
@@ -261,8 +348,12 @@ one_shot = true
 [connection signal="area_entered" from="Star/Star Collider" to="Player" method="_on_star_collision"]
 [connection signal="area_entered" from="Star/Star Collider" to="Level Complete Text" method="on_win"]
 [connection signal="area_entered" from="Star/Star Collider" to="Win Audio" method="on_player_collision"]
+[connection signal="area_entered" from="Cars/Car1/Car Collider" to="Player" method="_on_car_collision"]
+[connection signal="area_entered" from="Cars/Car2/Car Collider" to="Player" method="_on_car_collision"]
+[connection signal="area_entered" from="Cars/Car3/Car Collider" to="Player" method="_on_car_collision"]
 
 [editable path="Game Manager"]
 [editable path="Footstep Audio"]
 [editable path="Win Audio"]
+[editable path="Hit Audio"]
 [editable path="Controls"]

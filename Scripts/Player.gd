@@ -13,9 +13,11 @@ var direction = _RIGHT
 @export var sprite_left: Sprite2D
 @export var sprite_right: Sprite2D
 
+@export var player_collider: Area2D
 @export var player_forward_collider: Area2D
 var _can_move_forward = true
 var _queue_prevent_move_forward = false
+@export var hit_audio: AudioStreamPlayer
 
 
 func _ready():
@@ -55,6 +57,12 @@ func _update_sprite():
 func _on_star_collision(_collision: Area2D):
 	#print("WIN")
 	return
+
+
+func _on_car_collision(_collision: Area2D):
+	if (_collision == player_collider):
+		hit_audio.play()
+		get_tree().change_scene_to_file('res://Scenes/Level 3.tscn')
 
 
 func _on_wall_collision(_collision: Area2D):

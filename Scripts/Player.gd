@@ -15,6 +15,7 @@ var direction = _RIGHT
 
 @export var player_forward_collider: Area2D
 var _can_move_forward = true
+var _queue_prevent_move_forward = false
 
 
 func _ready():
@@ -38,6 +39,12 @@ func _process(_delta):
 	_update_sprite()
 
 
+func _physics_process(_delta):
+	if _queue_prevent_move_forward:
+		_queue_prevent_move_forward = false
+		_can_move_forward = false
+
+
 func _update_sprite():
 	sprite_right.visible = direction == _RIGHT
 	sprite_down.visible = direction == _DOWN
@@ -46,12 +53,13 @@ func _update_sprite():
 
 
 func _on_star_collision(_collision: Area2D):
-	print("WIN")
+	#print("WIN")
+	return
 
 
 func _on_wall_collision(_collision: Area2D):
 	if (_collision == player_forward_collider):
-		_can_move_forward = false
+		_queue_prevent_move_forward = true
 
 
 func _on_wall_exit(_collision: Area2D):

@@ -1,17 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://byml3u40mmctk"]
+[gd_scene load_steps=17 format=3 uid="uid://byml3u40mmctk"]
 
 [ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_wv84l"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_2xrjm"]
 [ext_resource type="Texture2D" uid="uid://dvpb2s1ccp6rb" path="res://Sprites/wall.png" id="3_6abvh"]
 [ext_resource type="Script" path="res://Scripts/Rotate CCW Action.gd" id="4_0ubb6"]
 [ext_resource type="Texture2D" uid="uid://b5d116tcf7d2e" path="res://Sprites/goose_up.png" id="5_464jk"]
-[ext_resource type="Script" path="res://Scenes/Player Sprite Controller.gd" id="5_jg7eb"]
+[ext_resource type="Script" path="res://Scripts/Player Sprite Controller.gd" id="5_jg7eb"]
 [ext_resource type="Script" path="res://Scripts/Move Forward Action.gd" id="5_xtbv6"]
 [ext_resource type="Texture2D" uid="uid://blghl20dkd7kx" path="res://Sprites/goose_down.png" id="6_dedau"]
 [ext_resource type="Texture2D" uid="uid://cuw304qoudgyq" path="res://Sprites/goose_left.png" id="7_42td7"]
 [ext_resource type="Texture2D" uid="uid://dk0cuq0kdk5fl" path="res://Sprites/goose_right.png" id="8_7vpio"]
 [ext_resource type="Texture2D" uid="uid://byhlioyik5syx" path="res://Sprites/star.png" id="10_84kek"]
 [ext_resource type="Texture2D" uid="uid://b6q7qg4lxeo3y" path="res://Sprites/bg_black.png" id="11_esbqe"]
+[ext_resource type="Theme" uid="uid://cdudi8ole10hu" path="res://Prefabs/pixel_text_theme.tres" id="13_5eq84"]
+[ext_resource type="Script" path="res://Scenes/Level Complete Text Controller.gd" id="13_a1sxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6j68"]
 size = Vector2(23.7037, 23.7037)
@@ -39,6 +41,95 @@ texture = ExtResource("3_6abvh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Wall/Wall Collider"]
 shape = SubResource("RectangleShape2D_s6j68")
 
+[node name="Wall2" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(0, 23.7037)
+texture = ExtResource("3_6abvh")
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Wall2/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
+[node name="Wall3" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(23.7037, 0)
+texture = ExtResource("3_6abvh")
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Wall3/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
+[node name="Wall4" type="Sprite2D" parent="Background/Node2D"]
+texture = ExtResource("3_6abvh")
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Wall4/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
+[node name="Wall5" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(71.1111, -47.4074)
+texture = ExtResource("3_6abvh")
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Wall5/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
+[node name="Wall6" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(94.8148, -47.4074)
+texture = ExtResource("3_6abvh")
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Wall6/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
+[node name="Wall7" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(-23.7037, -47.4074)
+texture = ExtResource("3_6abvh")
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Wall7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Wall7/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
+[node name="Border Left" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(-118.519, 0)
+scale = Vector2(1, 5)
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Border Left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Border Left/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
+[node name="Border Right" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(118.519, 0)
+scale = Vector2(1, 5)
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Border Right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Border Right/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
+[node name="Border Top" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(0, -71.1111)
+scale = Vector2(9, 1)
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Border Top"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Border Top/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
+[node name="Border Bottom" type="Sprite2D" parent="Background/Node2D"]
+position = Vector2(0, 71.1111)
+scale = Vector2(9, 1)
+
+[node name="Wall Collider" type="Area2D" parent="Background/Node2D/Border Bottom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D/Border Bottom/Wall Collider"]
+shape = SubResource("RectangleShape2D_s6j68")
+
 [node name="Star" type="Node2D" parent="."]
 position = Vector2(704, 448)
 
@@ -47,9 +138,9 @@ scale = Vector2(5.4, 5.4)
 texture = ExtResource("10_84kek")
 
 [node name="Star Collider" type="Area2D" parent="Star"]
+scale = Vector2(0.9, 0.9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Star/Star Collider"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8r2lc")
 
 [node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("sprite_up", "sprite_down", "sprite_left", "sprite_right", "player_forward_collider")]
@@ -69,9 +160,9 @@ script = ExtResource("5_xtbv6")
 move_distance = 128
 
 [node name="Player Collider" type="Area2D" parent="Player"]
+scale = Vector2(0.9, 0.9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player Collider"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8r2lc")
 
 [node name="Player Forward Collider" type="Area2D" parent="Player"]
@@ -79,7 +170,6 @@ position = Vector2(128, 0)
 scale = Vector2(0.9, 0.9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player Forward Collider"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8r2lc")
 
 [node name="Player Sprites" type="Node2D" parent="." node_paths=PackedStringArray("player")]
@@ -101,10 +191,45 @@ texture = ExtResource("7_42td7")
 [node name="Right" type="Sprite2D" parent="Player Sprites"]
 texture = ExtResource("8_7vpio")
 
+[node name="Level Complete Text" type="Node2D" parent="." node_paths=PackedStringArray("player", "label")]
+position = Vector2(168, 264)
+script = ExtResource("13_a1sxw")
+player = NodePath("../Player/Player Collider")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Level Complete Text"]
+offset_right = 824.0
+offset_bottom = 120.0
+theme = ExtResource("13_5eq84")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+
 [connection signal="button_press" from="Game Manager" to="Player/Move Forward Action" method="_on_action"]
 [connection signal="button_release" from="Game Manager" to="Player/Rotate CW Action" method="_on_action"]
 [connection signal="area_entered" from="Background/Node2D/Wall/Wall Collider" to="Player" method="_on_wall_collision"]
 [connection signal="area_exited" from="Background/Node2D/Wall/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Wall2/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Wall2/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Wall3/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Wall3/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Wall4/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Wall4/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Wall5/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Wall5/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Wall6/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Wall6/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Wall7/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Wall7/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Border Left/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Border Left/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Border Right/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Border Right/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Border Top/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Border Top/Wall Collider" to="Player" method="_on_wall_exit"]
+[connection signal="area_entered" from="Background/Node2D/Border Bottom/Wall Collider" to="Player" method="_on_wall_collision"]
+[connection signal="area_exited" from="Background/Node2D/Border Bottom/Wall Collider" to="Player" method="_on_wall_exit"]
 [connection signal="area_entered" from="Star/Star Collider" to="Player" method="_on_star_collision"]
+[connection signal="area_entered" from="Star/Star Collider" to="Level Complete Text" method="on_win"]
 
 [editable path="Game Manager"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://wiy6qi2nk2j7"]
+
+[ext_resource type="AudioStream" uid="uid://deimrptm82jya" path="res://Audio/footstep.ogg" id="1_t74hi"]
+[ext_resource type="Script" path="res://Scenes/Footstep Audio.gd" id="2_uy2eu"]
+
+[node name="Footstep Audio" type="AudioStreamPlayer"]
+stream = ExtResource("1_t74hi")
+script = ExtResource("2_uy2eu")

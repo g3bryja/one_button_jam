@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds08sxvjc6wr6"]
+
+[ext_resource type="AudioStream" uid="uid://bgk2i78nj17o1" path="res://Audio/win.ogg" id="1_ccv6g"]
+[ext_resource type="Script" path="res://Scenes/Footstep Audio.gd" id="2_wqdyh"]
+
+[node name="Win Audio" type="AudioStreamPlayer" node_paths=PackedStringArray("player")]
+stream = ExtResource("1_ccv6g")
+volume_db = -15.0
+pitch_scale = 3.0
+script = ExtResource("2_wqdyh")
+player = NodePath("")

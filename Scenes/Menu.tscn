@@ -1,0 +1,161 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnpvc2ijo3t"]
+
+[ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_njkfi"]
+[ext_resource type="Script" path="res://Scripts/Debug Listener.gd" id="2_ngb7h"]
+[ext_resource type="Texture2D" uid="uid://b6q7qg4lxeo3y" path="res://Sprites/bg_black.png" id="3_o0qc8"]
+[ext_resource type="PackedScene" uid="uid://wiy6qi2nk2j7" path="res://Prefabs/footstep_audio.tscn" id="4_kms03"]
+[ext_resource type="PackedScene" uid="uid://ds08sxvjc6wr6" path="res://Prefabs/win_audio.tscn" id="5_vuu8b"]
+[ext_resource type="Script" path="res://Scenes/Menu Controller.gd" id="6_yl46g"]
+[ext_resource type="Theme" uid="uid://cdudi8ole10hu" path="res://Prefabs/pixel_text_theme.tres" id="7_l0dvh"]
+[ext_resource type="Texture2D" uid="uid://41vot7641y1d" path="res://Sprites/dot.png" id="8_g20vk"]
+[ext_resource type="Texture2D" uid="uid://bcukc0h0wslus" path="res://Sprites/check.png" id="9_ann0y"]
+[ext_resource type="PackedScene" uid="uid://c3rxvix4y0kfg" path="res://Prefabs/controls.tscn" id="10_cn875"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Game Manager" parent="." instance=ExtResource("1_njkfi")]
+
+[node name="Debug Listener" type="Node" parent="."]
+script = ExtResource("2_ngb7h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_o0qc8")
+centered = false
+
+[node name="Footstep Audio" parent="." instance=ExtResource("4_kms03")]
+
+[node name="Win Audio" parent="." instance=ExtResource("5_vuu8b")]
+
+[node name="Menu" type="Node2D" parent="." node_paths=PackedStringArray("play_dot_press", "play_dot_hold1", "play_dot_hold2", "play_dot_hold3", "play_check_press", "play_check_hold1", "play_check_hold2", "play_check_hold3", "quit_dot_press", "quit_dot_hold1", "quit_dot_hold2", "quit_dot_hold3", "quit_check_press", "quit_check_hold1", "quit_check_hold2", "quit_check_hold3")]
+script = ExtResource("6_yl46g")
+play_dot_press = NodePath("PLAY/Dots/Press")
+play_dot_hold1 = NodePath("PLAY/Dots/Hold1")
+play_dot_hold2 = NodePath("PLAY/Dots/Hold2")
+play_dot_hold3 = NodePath("PLAY/Dots/Hold3")
+play_check_press = NodePath("PLAY/Checks/Press")
+play_check_hold1 = NodePath("PLAY/Checks/Hold1")
+play_check_hold2 = NodePath("PLAY/Checks/Hold2")
+play_check_hold3 = NodePath("PLAY/Checks/Hold3")
+quit_dot_press = NodePath("QUIT/Dots2/Press")
+quit_dot_hold1 = NodePath("QUIT/Dots2/Hold1")
+quit_dot_hold2 = NodePath("QUIT/Dots2/Hold2")
+quit_dot_hold3 = NodePath("QUIT/Dots2/Hold3")
+quit_check_press = NodePath("QUIT/Checks2/Press")
+quit_check_hold1 = NodePath("QUIT/Checks2/Hold1")
+quit_check_hold2 = NodePath("QUIT/Checks2/Hold2")
+quit_check_hold3 = NodePath("QUIT/Checks2/Hold3")
+
+[node name="PLAY" type="Label" parent="Menu"]
+offset_left = 128.0
+offset_top = 176.0
+offset_right = 952.0
+offset_bottom = 296.0
+theme = ExtResource("7_l0dvh")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "PLAY"
+
+[node name="Dots" type="Node2D" parent="Menu/PLAY"]
+position = Vector2(256, 48)
+scale = Vector2(5.4, 5.4)
+
+[node name="Press" type="Sprite2D" parent="Menu/PLAY/Dots"]
+position = Vector2(5.92593, 0)
+texture = ExtResource("8_g20vk")
+
+[node name="Hold1" type="Sprite2D" parent="Menu/PLAY/Dots"]
+position = Vector2(29.6296, -2.82018e-06)
+texture = ExtResource("8_g20vk")
+
+[node name="Hold2" type="Sprite2D" parent="Menu/PLAY/Dots"]
+position = Vector2(53.3333, -2.82018e-06)
+texture = ExtResource("8_g20vk")
+
+[node name="Hold3" type="Sprite2D" parent="Menu/PLAY/Dots"]
+position = Vector2(77.037, 0)
+texture = ExtResource("8_g20vk")
+
+[node name="Checks" type="Node2D" parent="Menu/PLAY"]
+position = Vector2(256, 48)
+scale = Vector2(5.4, 5.4)
+
+[node name="Press" type="Sprite2D" parent="Menu/PLAY/Checks"]
+position = Vector2(5.92593, 0)
+texture = ExtResource("9_ann0y")
+
+[node name="Hold1" type="Sprite2D" parent="Menu/PLAY/Checks"]
+position = Vector2(29.6296, -2.82018e-06)
+texture = ExtResource("9_ann0y")
+
+[node name="Hold2" type="Sprite2D" parent="Menu/PLAY/Checks"]
+position = Vector2(53.3333, -2.82018e-06)
+texture = ExtResource("9_ann0y")
+
+[node name="Hold3" type="Sprite2D" parent="Menu/PLAY/Checks"]
+position = Vector2(77.037, 0)
+texture = ExtResource("9_ann0y")
+
+[node name="QUIT" type="Label" parent="Menu"]
+offset_left = 128.0
+offset_top = 368.0
+offset_right = 952.0
+offset_bottom = 488.0
+theme = ExtResource("7_l0dvh")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "QUIT"
+
+[node name="Dots2" type="Node2D" parent="Menu/QUIT"]
+position = Vector2(256, 48)
+scale = Vector2(5.4, 5.4)
+
+[node name="Press" type="Sprite2D" parent="Menu/QUIT/Dots2"]
+position = Vector2(5.92593, 0)
+texture = ExtResource("8_g20vk")
+
+[node name="Hold1" type="Sprite2D" parent="Menu/QUIT/Dots2"]
+position = Vector2(29.6296, -2.82018e-06)
+texture = ExtResource("8_g20vk")
+
+[node name="Hold2" type="Sprite2D" parent="Menu/QUIT/Dots2"]
+position = Vector2(53.3333, -2.82018e-06)
+texture = ExtResource("8_g20vk")
+
+[node name="Hold3" type="Sprite2D" parent="Menu/QUIT/Dots2"]
+position = Vector2(77.037, 0)
+texture = ExtResource("8_g20vk")
+
+[node name="Checks2" type="Node2D" parent="Menu/QUIT"]
+position = Vector2(256, 48)
+scale = Vector2(5.4, 5.4)
+
+[node name="Press" type="Sprite2D" parent="Menu/QUIT/Checks2"]
+position = Vector2(5.92593, 0)
+texture = ExtResource("9_ann0y")
+
+[node name="Hold1" type="Sprite2D" parent="Menu/QUIT/Checks2"]
+position = Vector2(29.6296, -2.82018e-06)
+texture = ExtResource("9_ann0y")
+
+[node name="Hold2" type="Sprite2D" parent="Menu/QUIT/Checks2"]
+position = Vector2(53.3333, -2.82018e-06)
+texture = ExtResource("9_ann0y")
+
+[node name="Hold3" type="Sprite2D" parent="Menu/QUIT/Checks2"]
+position = Vector2(77.037, 0)
+texture = ExtResource("9_ann0y")
+
+[node name="Controls" parent="." instance=ExtResource("10_cn875")]
+
+[connection signal="button_press" from="Game Manager" to="Debug Listener" method="on_button_press"]
+[connection signal="button_press" from="Game Manager" to="Footstep Audio" method="on_action"]
+[connection signal="button_press" from="Game Manager" to="Menu" method="on_press"]
+[connection signal="button_release" from="Game Manager" to="Debug Listener" method="on_button_release"]
+[connection signal="button_release" from="Game Manager" to="Footstep Audio" method="on_action"]
+[connection signal="button_release" from="Game Manager" to="Menu" method="on_release"]
+
+[editable path="Game Manager"]
+[editable path="Footstep Audio"]
+[editable path="Controls"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://byml3u40mmctk"]
+[gd_scene load_steps=22 format=3 uid="uid://byml3u40mmctk"]
 
 [ext_resource type="PackedScene" uid="uid://ts7dbo61j63a" path="res://Prefabs/game_manager.tscn" id="1_wv84l"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_2xrjm"]
@@ -13,7 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://byhlioyik5syx" path="res://Sprites/star.png" id="10_84kek"]
 [ext_resource type="Texture2D" uid="uid://b6q7qg4lxeo3y" path="res://Sprites/bg_black.png" id="11_esbqe"]
 [ext_resource type="Theme" uid="uid://cdudi8ole10hu" path="res://Prefabs/pixel_text_theme.tres" id="13_5eq84"]
-[ext_resource type="Script" path="res://Scenes/Level Complete Text Controller.gd" id="13_a1sxw"]
+[ext_resource type="Script" path="res://Scripts/Level Complete Text Controller.gd" id="13_a1sxw"]
+[ext_resource type="PackedScene" uid="uid://wiy6qi2nk2j7" path="res://Prefabs/footstep_audio.tscn" id="15_he7ke"]
+[ext_resource type="PackedScene" uid="uid://ds08sxvjc6wr6" path="res://Prefabs/win_audio.tscn" id="16_ww1qp"]
+[ext_resource type="PackedScene" uid="uid://c3rxvix4y0kfg" path="res://Prefabs/controls.tscn" id="17_5kueu"]
+[ext_resource type="Texture2D" uid="uid://bb785s4cytoxs" path="res://Sprites/move.png" id="18_5gcpx"]
+[ext_resource type="Texture2D" uid="uid://t5jk4l1ajq5b" path="res://Sprites/rotate.png" id="19_21srl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6j68"]
 size = Vector2(23.7037, 23.7037)
@@ -205,8 +210,24 @@ theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 
+[node name="Footstep Audio" parent="." instance=ExtResource("15_he7ke")]
+
+[node name="Win Audio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_ww1qp")]
+player = NodePath("../Player/Player Collider")
+
+[node name="Controls" parent="." instance=ExtResource("17_5kueu")]
+
+[node name="Sprite2D" parent="Controls/PRESS + HOLD" index="0"]
+position = Vector2(264, 24)
+texture = ExtResource("18_5gcpx")
+
+[node name="Sprite2D2" parent="Controls/RELEASE" index="0"]
+texture = ExtResource("19_21srl")
+
 [connection signal="button_press" from="Game Manager" to="Player/Move Forward Action" method="_on_action"]
+[connection signal="button_press" from="Game Manager" to="Footstep Audio" method="on_action"]
 [connection signal="button_release" from="Game Manager" to="Player/Rotate CW Action" method="_on_action"]
+[connection signal="button_release" from="Game Manager" to="Footstep Audio" method="on_action"]
 [connection signal="area_entered" from="Background/Node2D/Wall/Wall Collider" to="Player" method="_on_wall_collision"]
 [connection signal="area_exited" from="Background/Node2D/Wall/Wall Collider" to="Player" method="_on_wall_exit"]
 [connection signal="area_entered" from="Background/Node2D/Wall2/Wall Collider" to="Player" method="_on_wall_collision"]
@@ -231,5 +252,9 @@ theme_override_font_sizes/font_size = 100
 [connection signal="area_exited" from="Background/Node2D/Border Bottom/Wall Collider" to="Player" method="_on_wall_exit"]
 [connection signal="area_entered" from="Star/Star Collider" to="Player" method="_on_star_collision"]
 [connection signal="area_entered" from="Star/Star Collider" to="Level Complete Text" method="on_win"]
+[connection signal="area_entered" from="Star/Star Collider" to="Win Audio" method="on_player_collision"]
 
 [editable path="Game Manager"]
+[editable path="Footstep Audio"]
+[editable path="Win Audio"]
+[editable path="Controls"]

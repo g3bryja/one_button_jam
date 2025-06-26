@@ -25,7 +25,7 @@ centered = false
 
 [node name="Win Audio" parent="." instance=ExtResource("5_ehfjv")]
 
-[node name="UI" type="Node2D" parent="." node_paths=PackedStringArray("press", "hold1", "hold2", "hold3", "release", "audio")]
+[node name="UI" type="Node2D" parent="." node_paths=PackedStringArray("press", "hold1", "hold2", "hold3", "release", "audio", "timer")]
 script = ExtResource("5_qmu5v")
 press = NodePath("Checks/Press")
 hold1 = NodePath("Checks/Hold1")
@@ -33,6 +33,7 @@ hold2 = NodePath("Checks/Hold2")
 hold3 = NodePath("Checks/Hold3")
 release = NodePath("Checks/Release")
 audio = NodePath("../Win Audio")
+timer = NodePath("Timer")
 
 [node name="Spacebar" type="Label" parent="UI"]
 offset_left = 368.0
@@ -114,6 +115,10 @@ texture = ExtResource("7_dc2i8")
 [node name="Release" type="Sprite2D" parent="UI/Checks"]
 position = Vector2(142.222, 0)
 texture = ExtResource("7_dc2i8")
+
+[node name="Timer" type="Timer" parent="UI"]
+wait_time = 0.75
+one_shot = true
 
 [connection signal="button_press" from="Game Manager" to="Debug Listener" method="on_button_press"]
 [connection signal="button_press" from="Game Manager" to="Footstep Audio" method="on_action"]

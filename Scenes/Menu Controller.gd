@@ -1,6 +1,8 @@
 extends Node2D
 
 
+@export var timer: Timer
+
 @export var play_dot_press: Sprite2D
 @export var play_dot_hold1: Sprite2D
 @export var play_dot_hold2: Sprite2D
@@ -24,10 +26,22 @@ extends Node2D
 var play_selected = true
 var action_count = 0
 var action_count_max = 4
+@export var audio: AudioStreamPlayer
+var queue_play = false
+var queue_quit = false
 
 
 func _ready():
+	timer.one_shot = true
 	_update_ui()
+
+
+func _process(_delta):
+	if timer.is_stopped():
+		if queue_play:
+			get_tree().change_scene_to_file('res://Scenes/Level 1.tscn')
+		elif queue_quit:
+			get_tree().quit()
 
 
 func on_press():
@@ -37,7 +51,15 @@ func on_press():
 
 func on_release():
 	if (action_count >= action_count_max):
-		pass
+		audio.play()
+		timer.start()
+		if play_selected:
+			queue_play = true
+			#get_tree().change_scene_to_file('res://Scenes/Level 1.tscn')
+			pass
+		else:
+			queue_quit = true
+			#get_tree().quit()
 	else:
 		action_count = 0
 		play_selected = not play_selected

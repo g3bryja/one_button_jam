@@ -26,8 +26,9 @@ centered = false
 
 [node name="Win Audio" parent="." instance=ExtResource("5_vuu8b")]
 
-[node name="Menu" type="Node2D" parent="." node_paths=PackedStringArray("play_dot_press", "play_dot_hold1", "play_dot_hold2", "play_dot_hold3", "play_check_press", "play_check_hold1", "play_check_hold2", "play_check_hold3", "quit_dot_press", "quit_dot_hold1", "quit_dot_hold2", "quit_dot_hold3", "quit_check_press", "quit_check_hold1", "quit_check_hold2", "quit_check_hold3")]
+[node name="Menu" type="Node2D" parent="." node_paths=PackedStringArray("timer", "play_dot_press", "play_dot_hold1", "play_dot_hold2", "play_dot_hold3", "play_check_press", "play_check_hold1", "play_check_hold2", "play_check_hold3", "quit_dot_press", "quit_dot_hold1", "quit_dot_hold2", "quit_dot_hold3", "quit_check_press", "quit_check_hold1", "quit_check_hold2", "quit_check_hold3", "audio")]
 script = ExtResource("6_yl46g")
+timer = NodePath("../Timer")
 play_dot_press = NodePath("PLAY/Dots/Press")
 play_dot_hold1 = NodePath("PLAY/Dots/Hold1")
 play_dot_hold2 = NodePath("PLAY/Dots/Hold2")
@@ -44,6 +45,7 @@ quit_check_press = NodePath("QUIT/Checks2/Press")
 quit_check_hold1 = NodePath("QUIT/Checks2/Hold1")
 quit_check_hold2 = NodePath("QUIT/Checks2/Hold2")
 quit_check_hold3 = NodePath("QUIT/Checks2/Hold3")
+audio = NodePath("../Win Audio")
 
 [node name="PLAY" type="Label" parent="Menu"]
 offset_left = 128.0
@@ -148,6 +150,10 @@ position = Vector2(77.037, 0)
 texture = ExtResource("9_ann0y")
 
 [node name="Controls" parent="." instance=ExtResource("10_cn875")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
 
 [connection signal="button_press" from="Game Manager" to="Debug Listener" method="on_button_press"]
 [connection signal="button_press" from="Game Manager" to="Footstep Audio" method="on_action"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmvd4ygwj6dn5"]
+
+[ext_resource type="Texture2D" uid="uid://b6q7qg4lxeo3y" path="res://Sprites/bg_black.png" id="1_cdqfu"]
+[ext_resource type="Texture2D" uid="uid://cuw304qoudgyq" path="res://Sprites/goose_left.png" id="2_cb3x8"]
+[ext_resource type="Theme" uid="uid://cdudi8ole10hu" path="res://Prefabs/pixel_text_theme.tres" id="3_i8nvc"]
+
+[node name="Cover" type="Node2D"]
+position = Vector2(576, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cdqfu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -72)
+scale = Vector2(10, 10)
+texture = ExtResource("2_cb3x8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -384.0
+offset_top = 80.0
+offset_right = 387.0
+offset_bottom = 170.0
+theme = ExtResource("3_i8nvc")
+theme_override_font_sizes/font_size = 75
+text = "PRESS-HOLD-RELEASE!"
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-120, 104)
+rotation = 1.5708
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_cdqfu")
+offset = Vector2(25, -100)
